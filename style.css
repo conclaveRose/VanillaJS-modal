@@ -1,0 +1,187 @@
+:root {
+  /* font-style */
+  --font-family: "Work Sans", sans-serif;
+  /* color */
+  --font-color: bisque;
+  --nav-bottom-color: rgb(95, 74, 74);
+  --overlay-color: rgba(0, 0, 0, 0.603);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: var(--font-family);
+}
+
+button {
+  all: unset;
+  border: 1px solid black;
+  border-radius: 5px;
+  background-color: rgba(0, 0, 0, 0.726);
+  padding: 5px 15px;
+  color: var(--font-color);
+}
+
+button:hover {
+  cursor: pointer;
+}
+
+li {
+  list-style: none;
+}
+
+img {
+  width: 100%;
+}
+
+a {
+  text-decoration: none;
+}
+
+/* fixed main navar menu  */
+.navBar {
+  display: flex;
+  position: fixed;
+  justify-content: space-evenly;
+  width: 50%;
+  left: 50%;
+  height: 5%;
+}
+.navBar li {
+  display: table;
+  height: 100%;
+  position: relative;
+}
+
+.navBar a {
+  color: var(--font-color);
+  height: 100%;
+  display: table-cell;
+  vertical-align: middle;
+}
+.navBar li:hover {
+  color: var(--nav-bottom-color);
+  font-size: 1.1rem;
+}
+.navBar li:before {
+  content: "";
+  position: absolute;
+  background-color: var(--nav-bottom-color);
+  width: 0;
+  left: 0;
+  height: 2px;
+  bottom: 0;
+  transition: 0.6s cubic-bezier(0.5, 1.6, 0.4, 0.7);
+}
+.navBar li:hover::before {
+  width: 100%;
+}
+
+/* section #container1  */
+#container1 {
+  background-image: url("./img/laptop-5842509_1920.jpg");
+  background-size: cover;
+  width: 100%;
+  height: 100vh;
+}
+
+#container1 h1 {
+  white-space: nowrap;
+  text-transform: capitalize;
+  color: transparent;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+#container1 h1::before {
+  content: "developer 이우진 입니다.";
+  top: 0;
+  left: 0;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  color: var(--font-color);
+  overflow: hidden;
+  border-right: 3px solid var(--font-color);
+  animation: typing 3s steps(30) infinite;
+}
+
+@keyframes typing {
+  0% {
+    width: 0%;
+  }
+  50% {
+    width: 100%;
+  }
+}
+
+/*section #container2   */
+#container2 {
+  text-align: center;
+  height: 100vh;
+  background-color: gray;
+  padding-top: 30px;
+}
+
+#container2 .contents {
+  position: relative;
+  height: 90%;
+  top: 10%;
+  width: 100%;
+  text-align: center;
+}
+
+#container2 .contents .login {
+  border: 1px solid black;
+  width: 60%;
+  margin: auto;
+  padding: 30px;
+}
+
+.contents .login .id__password li {
+  margin-bottom: 10px;
+}
+
+.contents .login .id__password {
+  margin-bottom: 10px;
+}
+
+#modal__container .modal {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 60%;
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  box-shadow: 0 12px 15px 0 rgba(0, 0, 0, 0.24);
+
+  background-color: lightgray;
+  border: 1px solid darkgray;
+  border-radius: 10px;
+}
+#modal__container .modal textarea {
+  width: 70%;
+}
+
+#modal__container .modal button {
+  width: 10%;
+  cursor: pointer;
+}
+
+#modal__container .modal__overlay {
+  background-color: var(--overlay-color);
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  left: 0;
+  top: 0;
+}
+
+#modal__container.hidden {
+  display: none;
+}
